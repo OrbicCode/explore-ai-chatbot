@@ -37,6 +37,7 @@ export default function ChatBot() {
   async function handleNewUserPrompt(userMessage: Message) {
     setMessages((prev) => [...prev, userMessage]);
     setIsLoading(true);
+    console.log(messagesEndRef);
 
     try {
       const response = await openai.chat.completions.create({
@@ -69,7 +70,6 @@ export default function ChatBot() {
         <li
           className={message.role === 'user' ? styles.userMessage : styles.assistantMessage}
           key={message.id}
-          ref={messagesEndRef}
         >
           <p>{message.content}</p>
         </li>
@@ -78,7 +78,10 @@ export default function ChatBot() {
     return (
       <section className={styles.chatBotSection}>
         <div className={styles.messagesContainer}>
-          <ul className={styles.messagesDisplay}>{messagesDisplay}</ul>
+          <ul className={styles.messagesDisplay}>
+            {messagesDisplay}
+            <li ref={messagesEndRef} style={{ height: 0, visibility: 'hidden' }}></li>
+          </ul>
         </div>
         <div className={styles.inputWrapper}>
           <PromptInput onSubmit={handleNewUserPrompt} isLoading={isLoading} />
