@@ -27,7 +27,12 @@ export default function PromptInput({ onSubmit }: PromptInputProps) {
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
       <div className={styles.textareaContainer}>
-        <textarea value={promptText} onChange={handleTextarea} className={styles.textarea} />
+        <textarea
+          placeholder='How can I help you?'
+          value={promptText}
+          onChange={handleTextarea}
+          className={styles.textarea}
+        />
         <button className={styles.submitButton}>
           <QuestionAnswerIcon />
         </button>
