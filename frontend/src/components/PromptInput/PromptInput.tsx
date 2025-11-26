@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import styles from './PromptInput.module.css';
-import type { Prompt } from '../ChatBot/ChatBot';
+import type { Message } from '../ChatBot/ChatBot';
 import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
 interface PromptInputProps {
-  onSubmit: (prompt: Prompt) => void;
+  onSubmit: (userMessage: Message) => void;
   isLoading: boolean;
 }
 
