@@ -17,6 +17,13 @@ export default function PromptInput({ onSubmit, isLoading }: PromptInputProps) {
     setPromptText(e.target.value);
   }
 
+  function handleKeyDown(e: React.KeyboardEvent<HTMLTextAreaElement>) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleSubmit(e);
+    }
+  }
+
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
 
@@ -37,6 +44,7 @@ export default function PromptInput({ onSubmit, isLoading }: PromptInputProps) {
           placeholder='How can I help you?'
           value={promptText}
           onChange={handleTextarea}
+          onKeyDown={handleKeyDown}
           className={styles.textarea}
         />
         {isLoading ? (

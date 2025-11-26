@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import OpenAI from 'openai';
 import PromptInput from '../PromptInput/PromptInput';
 import styles from './ChatBot.module.css';
@@ -24,6 +24,15 @@ export default function ChatBot() {
     },
   ]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const messagesEndRef = useRef<HTMLLIElement>(null);
+
+  function scrollToBottom() {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
 
   async function handleNewUserPrompt(userMessage: Message) {
     setMessages((prev) => [...prev, userMessage]);
@@ -60,6 +69,7 @@ export default function ChatBot() {
         <li
           className={message.role === 'user' ? styles.userMessage : styles.assistantMessage}
           key={message.id}
+          ref={messagesEndRef}
         >
           <p>{message.content}</p>
         </li>
