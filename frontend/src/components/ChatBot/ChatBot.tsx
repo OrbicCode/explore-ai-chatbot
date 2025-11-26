@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import OpenAI from 'openai';
 import PromptInput from '../PromptInput/PromptInput';
 import styles from './ChatBot.module.css';
+import { v4 as uuidv4 } from 'uuid';
 
 export type Message = {
   id: string;
@@ -58,6 +59,15 @@ export default function ChatBot() {
       setMessages((prev) => [...prev, assistantMessage]);
     } catch (error) {
       console.error('OpenAI Error: ', error);
+
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: uuidv4(),
+          role: 'assistant',
+          content: 'Sorry, something went wrong, check console.',
+        },
+      ]);
     } finally {
       setIsLoading(false);
     }
