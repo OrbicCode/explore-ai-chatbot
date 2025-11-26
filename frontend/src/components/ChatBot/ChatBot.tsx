@@ -57,7 +57,7 @@ export default function ChatBot() {
 
       setMessages((prev) => [...prev, assistantMessage]);
     } catch (error) {
-      console.error(error);
+      console.error('OpenAI Error: ', error);
     } finally {
       setIsLoading(false);
     }
