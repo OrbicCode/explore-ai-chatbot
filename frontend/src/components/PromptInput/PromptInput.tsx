@@ -3,12 +3,14 @@ import { v4 as uuidv4 } from 'uuid';
 import styles from './PromptInput.module.css';
 import type { Prompt } from '../ChatBot/ChatBot';
 import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
 interface PromptInputProps {
   onSubmit: (prompt: Prompt) => void;
+  isLoading: boolean;
 }
 
-export default function PromptInput({ onSubmit }: PromptInputProps) {
+export default function PromptInput({ onSubmit, isLoading }: PromptInputProps) {
   const [promptText, setPromptText] = useState('');
 
   function handleTextarea(e: React.ChangeEvent<HTMLTextAreaElement>) {
@@ -37,9 +39,15 @@ export default function PromptInput({ onSubmit }: PromptInputProps) {
           onChange={handleTextarea}
           className={styles.textarea}
         />
-        <button disabled={promptText ? false : true} className={styles.submitButton}>
-          <QuestionAnswerIcon />
-        </button>
+        {isLoading ? (
+          <div className={styles.pending}>
+            <MoreHorizIcon />
+          </div>
+        ) : (
+          <button disabled={promptText ? false : true} className={styles.submitButton}>
+            <QuestionAnswerIcon />
+          </button>
+        )}
       </div>
     </form>
   );

@@ -22,9 +22,11 @@ export default function ChatBot() {
       content: 'First turn left when leaveing Rivendell',
     },
   ]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   function handleNewUserPrompt(prompt: Prompt) {
     setMessages((prev) => [...prev, prompt]);
+    setIsLoading(true);
   }
 
   {
@@ -44,7 +46,7 @@ export default function ChatBot() {
           <ul className={styles.messagesDisplay}>{messagesDisplay}</ul>
         </div>
         <div className={styles.inputWrapper}>
-          <PromptInput onSubmit={handleNewUserPrompt} />
+          <PromptInput onSubmit={handleNewUserPrompt} isLoading={isLoading} />
         </div>
       </section>
     );

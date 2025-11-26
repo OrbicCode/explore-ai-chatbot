@@ -20,6 +20,7 @@
 }
 
 .textarea {
+  font-size: 1rem;
   resize: none;
   field-sizing: content;
   min-height: 2rem;
@@ -48,10 +49,10 @@
   align-items: center;
   align-self: flex-end;
   background: #e0e1dd;
-  padding: 0.45em;
+  padding: 0.5em;
   border: none;
   border-radius: 50%;
-  transform: translateY(-10%);
+  transform: translateY(-18%);
   cursor: pointer;
 }
 
@@ -66,4 +67,16 @@
 .submitButton:hover,
 .submitButton:focus {
   background: #778da9;
+}
+
+.pending {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-end;
+  padding: 0.4em;
+  background: #e0e1dd;
+  border-radius: 50%;
+  transform: translateY(-18%);
+  color: #1b263b;
 }
