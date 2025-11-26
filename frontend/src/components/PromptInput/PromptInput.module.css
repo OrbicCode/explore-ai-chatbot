@@ -55,6 +55,15 @@
   cursor: pointer;
 }
 
-.submitButton:hover {
+.submitButton:disabled {
+  opacity: 0.25;
+}
+
+.submitButton:disabled:hover {
+  background: #e0e1dd;
+}
+
+.submitButton:hover,
+.submitButton:focus {
   background: #778da9;
 }

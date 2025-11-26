@@ -3,6 +3,6 @@ main {
   top: 75px;
   width: 100vw;
   height: calc(100vh - 75px);
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
 }

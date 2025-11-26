@@ -18,11 +18,15 @@ export default function PromptInput({ onSubmit }: PromptInputProps) {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
 
-    onSubmit({
-      id: uuidv4(),
-      role: 'user',
-      content: promptText,
-    });
+    if (promptText) {
+      onSubmit({
+        id: uuidv4(),
+        role: 'user',
+        content: promptText,
+      });
+    }
+
+    setPromptText('');
   }
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
@@ -33,7 +37,7 @@ export default function PromptInput({ onSubmit }: PromptInputProps) {
           onChange={handleTextarea}
           className={styles.textarea}
         />
-        <button className={styles.submitButton}>
+        <button disabled={promptText ? false : true} className={styles.submitButton}>
           <QuestionAnswerIcon />
         </button>
       </div>

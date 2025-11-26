@@ -43,7 +43,9 @@ export default function ChatBot() {
         <div className={styles.messagesContainer}>
           <ul className={styles.messagesDisplay}>{messagesDisplay}</ul>
         </div>
-        <PromptInput onSubmit={handleNewUserPrompt} />
+        <div className={styles.inputWrapper}>
+          <PromptInput onSubmit={handleNewUserPrompt} />
+        </div>
       </section>
     );
   }

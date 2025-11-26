@@ -3,32 +3,34 @@
   flex-direction: column;
   position: relative;
   margin: 0 auto;
-  max-width: 850px;
-  min-width: 300px;
-  width: 75%;
-  height: 100%;
+  width: 100vw;
+  height: calc(100vh - 75px);
 }
 
 .messagesContainer {
   flex: 1;
+  width: 100%;
+  margin: 0 auto;
   overflow-y: auto;
 }
 
 .messagesDisplay {
   display: flex;
   flex-direction: column;
+  max-width: 850px;
+  min-width: 300px;
   gap: 2em;
   list-style: none;
   padding: 2em;
-  margin: 0;
+  margin: 0 auto;
 }
 
 .userMessage {
   align-self: flex-end;
   height: auto;
   max-width: 55%;
-  background: #1b263b;
   padding: 1em;
+  background: #1b263b;
   border-radius: 15px 5px 15px 5px;
 }
 
@@ -36,11 +38,24 @@
   align-self: flex-start;
   height: auto;
   max-width: 90%;
-  background: #415a77;
   padding: 1em;
+  background: #415a77;
   border-radius: 5px 15px 5px 15px;
 }
 
-.userMessage p .systemMessage p {
+.userMessage p,
+.systemMessage p {
   text-wrap: wrap;
+  margin: 0;
+}
+
+.inputWrapper {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 2rem);
+  max-width: 1100px;
+  z-index: 10;
+  pointer-events: auto;
 }
