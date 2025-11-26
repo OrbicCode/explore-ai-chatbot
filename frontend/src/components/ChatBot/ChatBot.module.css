@@ -1,7 +1,17 @@
 .chatBotSection {
+  display: flex;
+  flex-direction: column;
+  position: relative;
   margin: 0 auto;
-  max-width: 700px;
-  min-width: 500px;
+  max-width: 850px;
+  min-width: 300px;
+  width: 75%;
+  height: 100%;
+}
+
+.messagesContainer {
+  flex: 1;
+  overflow-y: auto;
 }
 
 .messagesDisplay {
@@ -15,13 +25,22 @@
 
 .userMessage {
   align-self: flex-end;
+  height: auto;
+  max-width: 55%;
   background: #1b263b;
   padding: 1em;
   border-radius: 15px 5px 15px 5px;
 }
 
 .systemMessage {
+  align-self: flex-start;
+  height: auto;
+  max-width: 90%;
   background: #415a77;
   padding: 1em;
   border-radius: 5px 15px 5px 15px;
+}
+
+.userMessage p .systemMessage p {
+  text-wrap: wrap;
 }

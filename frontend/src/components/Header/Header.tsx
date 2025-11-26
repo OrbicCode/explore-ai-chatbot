@@ -1,3 +1,9 @@
+import styles from './Header.module.css';
+
 export default function Header() {
-  return <h1>Chatbot</h1>;
+  return (
+    <header className={styles.header}>
+      <h1>Chatbot</h1>
+    </header>
+  );
 }

@@ -4,10 +4,12 @@ import Header from './components/Header/Header';
 
 function App() {
   return (
-    <main>
+    <>
       <Header />
-      <ChatBot />
-    </main>
+      <main>
+        <ChatBot />
+      </main>
+    </>
   );
 }
 

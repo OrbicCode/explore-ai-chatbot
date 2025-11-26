@@ -1,0 +1,8 @@
+.header {
+  position: fixed;
+  z-index: 9999;
+  background: #0d1b2a;
+  text-align: center;
+  height: 75px;
+  width: 100%;
+}

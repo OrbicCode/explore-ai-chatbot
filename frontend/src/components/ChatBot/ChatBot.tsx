@@ -34,7 +34,7 @@ export default function ChatBot() {
           className={message.role === 'user' ? styles.userMessage : styles.systemMessage}
           key={message.id}
         >
-          {message.content}
+          <p>{message.content}</p>
         </li>
       );
     });

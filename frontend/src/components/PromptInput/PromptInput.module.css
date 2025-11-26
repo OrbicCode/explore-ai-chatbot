@@ -1,12 +1,15 @@
+.formContainer {
+  width: 100%;
+  padding: 0 1em;
+}
+
 .form {
-  position: fixed;
+  position: sticky;
+  z-index: 9000;
   bottom: 1em;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100vw;
   padding: 0.5em 1em;
-  max-width: 700px;
-  min-width: 500px;
+  width: calc(75% - 2em);
+  margin: 0 auto;
   border-radius: 25px;
   background: #1b263b;
 }
@@ -31,6 +34,7 @@
 }
 
 .textarea::placeholder {
+  font-size: 1rem;
   color: #778da9;
 }
 
@@ -52,4 +56,5 @@
 }
 
 .submitButton:hover {
+  background: #778da9;
 }
