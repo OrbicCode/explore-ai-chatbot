@@ -1,20 +1,24 @@
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import styles from './PromptInput.module.css';
 import type { Prompt } from '../ChatBot/ChatBot';
 
 interface PromptInputProps {
-  setPrompt: (prompt: Prompt) => void;
+  onSubmit: (prompt: Prompt) => void;
 }
 
-export default function PromptInput({ setPrompt }: PromptInputProps) {
+export default function PromptInput({ onSubmit }: PromptInputProps) {
   const [promptText, setPromptText] = useState('');
 
   function handleTextarea(e: React.ChangeEvent<HTMLTextAreaElement>) {
     setPromptText(e.target.value);
   }
 
-  function handleSubmit() {
-    setPrompt({
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+
+    onSubmit({
+      id: uuidv4(),
       role: 'user',
       content: promptText,
     });
@@ -22,6 +26,7 @@ export default function PromptInput({ setPrompt }: PromptInputProps) {
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
       <textarea value={promptText} onChange={handleTextarea} className={styles.textarea} />
+      <button>Submit Prompt</button>
     </form>
   );
 }
