@@ -21,4 +21,7 @@
 }
 
 .systemMessage {
+  background: #415a77;
+  padding: 1em;
+  border-radius: 5px 15px 5px 15px;
 }

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import styles from './PromptInput.module.css';
 import type { Prompt } from '../ChatBot/ChatBot';
+import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
 
 interface PromptInputProps {
   onSubmit: (prompt: Prompt) => void;
@@ -25,8 +26,12 @@ export default function PromptInput({ onSubmit }: PromptInputProps) {
   }
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
-      <textarea value={promptText} onChange={handleTextarea} className={styles.textarea} />
-      <button>Submit Prompt</button>
+      <div className={styles.textareaContainer}>
+        <textarea value={promptText} onChange={handleTextarea} className={styles.textarea} />
+        <button className={styles.submitButton}>
+          <QuestionAnswerIcon />
+        </button>
+      </div>
     </form>
   );
 }
