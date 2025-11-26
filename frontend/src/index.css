@@ -3,6 +3,10 @@
   color: #e0e1dd;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   place-items: center;
@@ -13,4 +17,5 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  text-align: center;
 }

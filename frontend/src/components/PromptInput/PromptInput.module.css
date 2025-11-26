@@ -1,0 +1,24 @@
+.form {
+  position: fixed;
+  bottom: 1em;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  max-width: 700px;
+  min-width: 500px;
+  padding: 1em;
+}
+
+.textarea {
+  resize: none;
+  field-sizing: content;
+  min-height: 2rem;
+  max-height: 10rem;
+  width: 100%;
+  overflow-y: auto;
+  font-family: inherit;
+  color: inherit;
+  padding: 1em 2em;
+  border-radius: 25px;
+  background: #1b263b;
+}
