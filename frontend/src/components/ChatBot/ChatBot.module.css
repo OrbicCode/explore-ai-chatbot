@@ -4,9 +4,6 @@
   min-width: 500px;
 }
 
-.messagesContainer {
-}
-
 .messagesDisplay {
   display: flex;
   flex-direction: column;
