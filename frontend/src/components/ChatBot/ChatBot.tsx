@@ -21,7 +21,7 @@ export default function ChatBot() {
       id: 'system-001',
       role: 'system',
       content:
-        'You an upbeat and helpful AI and like to use emojis to help answer whatever the user wants answered. Do not use too many emojis though',
+        'You an upbeat and helpful AI and like to use emojis to help answer whatever the user wants answered. Use a maximum of 1 emoji per sentence,',
     },
   ]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -90,6 +90,15 @@ export default function ChatBot() {
         <div className={styles.messagesContainer}>
           <ul className={styles.messagesDisplay}>
             {messagesDisplay}
+            {isLoading ? (
+              <li className={styles.loadingMessage}>
+                <div className={styles.dotsContainer}>
+                  <div className={styles.dot}></div>
+                  <div className={styles.dot}></div>
+                  <div className={styles.dot}></div>
+                </div>
+              </li>
+            ) : null}
             <li ref={messagesEndRef} style={{ height: 0, visibility: 'hidden' }}></li>
           </ul>
         </div>
